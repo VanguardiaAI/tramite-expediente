@@ -28,7 +28,7 @@ services:
     image: nginx:alpine
     container_name: tramite-nginx
     ports:
-      - "9876:8090"
+      - "9876:80"
     volumes:
       - ./tramite-app/nginx/nginx.conf:/etc/nginx/nginx.conf
       - ./tramite-app/frontend/dist:/usr/share/nginx/html

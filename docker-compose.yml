@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  backend:
+    build: ./tramite-app/backend
+    container_name: tramite-backend
+    volumes:
+      - ./tramite-app/backend:/app
+      - ./tramite-app/backend/uploads:/app/uploads
+    environment:
+      - FLASK_APP=app.py
+      - FLASK_ENV=production
+    restart: always
+
+  frontend:
+    build: ./tramite-app/frontend
+    container_name: tramite-frontend
+    depends_on:
+      - backend
+    restart: always
+
+  nginx:
+    image: nginx:alpine
+    container_name: tramite-nginx
+    ports:
+      - "8090:8090"
+    volumes:
+      - ./tramite-app/nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./tramite-app/frontend/dist:/usr/share/nginx/html
+    depends_on:
+      - backend
+      - frontend
+    restart: always 

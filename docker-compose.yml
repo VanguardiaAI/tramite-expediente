@@ -16,12 +16,10 @@ services:
     command: sh -c "mkdir -p /app/uploads && flask run --host=0.0.0.0"
 
   frontend:
-    build: 
+    build:
       context: ./tramite-app/frontend
       dockerfile: Dockerfile
     container_name: tramite-frontend
-    volumes:
-      - frontend-build:/app/dist
     depends_on:
       - backend
     restart: always
@@ -33,11 +31,7 @@ services:
       - "9876:80"
     volumes:
       - ./tramite-app/nginx/nginx.conf:/etc/nginx/nginx.conf
-      - frontend-build:/usr/share/nginx/html
+      - ./tramite-app/frontend/dist:/usr/share/nginx/html
     depends_on:
-      - backend
       - frontend
-    restart: always
-
-volumes:
-  frontend-build: 
+    restart: always 

@@ -24,7 +24,7 @@ Una aplicación web para gestionar trámites y solicitudes relacionadas con inst
 3. La aplicación estará disponible en:
    - Frontend: http://localhost:9876
    - API Backend: http://localhost:9876/api
-   - API directamente: http://localhost:5000
+   - API directamente: http://localhost:5075
 
 ## Despliegue en VPS
 
@@ -42,9 +42,10 @@ Una aplicación web para gestionar trámites y solicitudes relacionadas con inst
    docker-compose up -d
    ```
 
-4. Configura tu firewall para permitir el tráfico en el puerto elegido:
+4. Configura tu firewall para permitir el tráfico en los puertos elegidos:
    ```
    ufw allow 9876/tcp
+   ufw allow 5075/tcp
    ```
 
 ## Estructura del proyecto

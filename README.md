@@ -17,12 +17,14 @@ Una aplicación web para gestionar trámites y solicitudes relacionadas con inst
 
 2. Construye e inicia los contenedores:
    ```
-   docker-compose up -d --build
+   docker-compose build --no-cache
+   docker-compose up -d
    ```
 
 3. La aplicación estará disponible en:
-   - Frontend: http://localhost:8090
-   - API Backend: http://localhost:8090/api
+   - Frontend: http://localhost:9876
+   - API Backend: http://localhost:9876/api
+   - API directamente: http://localhost:5000
 
 ## Despliegue en VPS
 
@@ -32,11 +34,17 @@ Una aplicación web para gestionar trámites y solicitudes relacionadas con inst
    cd tramite
    ```
 
-2. Opcionalmente, edita el archivo `docker-compose.yml` para cambiar el puerto de exposición (8090 por defecto).
+2. Si deseas cambiar el puerto (configurado a 9876 por defecto), edita el archivo `docker-compose.yml` para cambiar el puerto de exposición.
 
 3. Inicia los contenedores:
    ```
-   docker-compose up -d --build
+   docker-compose build --no-cache
+   docker-compose up -d
+   ```
+
+4. Configura tu firewall para permitir el tráfico en el puerto elegido:
+   ```
+   ufw allow 9876/tcp
    ```
 
 ## Estructura del proyecto

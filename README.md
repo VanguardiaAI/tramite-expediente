@@ -22,8 +22,8 @@ Una aplicación web para gestionar trámites y solicitudes relacionadas con inst
    ```
 
 3. La aplicación estará disponible en:
-   - Frontend: http://localhost (o http://localhost:80)
-   - API Backend: http://localhost/api
+   - Frontend: http://localhost:8888
+   - API Backend: http://localhost:8888/api
    - API directamente: http://localhost:5075
 
 ## Despliegue en VPS
@@ -34,7 +34,7 @@ Una aplicación web para gestionar trámites y solicitudes relacionadas con inst
    cd tramite
    ```
 
-2. Si deseas cambiar el puerto (configurado al estándar 80 por defecto), edita el archivo `docker-compose.yml` para cambiar el puerto de exposición.
+2. Si deseas cambiar el puerto (configurado a 8888 por defecto), edita el archivo `docker-compose.yml` para cambiar el puerto de exposición.
 
 3. Inicia los contenedores:
    ```
@@ -44,7 +44,7 @@ Una aplicación web para gestionar trámites y solicitudes relacionadas con inst
 
 4. Configura tu firewall para permitir el tráfico en los puertos elegidos:
    ```
-   ufw allow 80/tcp
+   ufw allow 8888/tcp
    ufw allow 5075/tcp
    ```
 

@@ -28,7 +28,7 @@ services:
     image: nginx:alpine
     container_name: tramite-nginx
     ports:
-      - "8080:80"   # Puerto cambiado de 80 a 8080
+      - "8888:80"   # Puerto cambiado para no interferir con nginx del sistema
     volumes:
       - ./tramite-app/nginx/nginx.conf:/etc/nginx/nginx.conf
       - ./tramite-app/frontend/dist:/usr/share/nginx/html
